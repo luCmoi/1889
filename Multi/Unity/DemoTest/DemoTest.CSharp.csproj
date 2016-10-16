@@ -89,6 +89,7 @@
     <Compile Include="Assets\Script\1\Controller1.cs" />
     <Compile Include="Assets\Script\1\Interact1.cs" />
     <Compile Include="Assets\Script\ExitAreaPuzzle.cs" />
+    <Compile Include="Assets\Script\ItemZoomControle.cs" />
     <Compile Include="Assets\Script\ObjectBehavior.cs" />
     <Compile Include="Assets\Script\Utility.cs" />
   </ItemGroup>

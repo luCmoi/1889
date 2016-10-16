@@ -9,7 +9,12 @@ public class Controller1 : MonoBehaviour {
     public Camera mainCam;
     public bool inObjet;
     public bool inPuzzle;
+    public bool inZoomItem;
     public GameObject panelCommande;
+    public Camera zoomItemCam;
+
+   
+    private Camera lastCam;
     private Interact1 puzzle;
     private ObjectBehavior objet;
 	// Use this for initialization
@@ -61,9 +66,30 @@ public class Controller1 : MonoBehaviour {
         {
             panelCommande.SetActive(!panelCommande.activeInHierarchy);
         }
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            SceneManager.LoadScene(0);
+            if (!inZoomItem)
+            {
+                ZoomItem();
+            }else
+            {
+                DeZoomItem();
+            }
         }
+    }
+
+    public void ZoomItem()
+    {
+        inZoomItem = true;
+        lastCam = Camera.current;
+        zoomItemCam.gameObject.SetActive(true);
+        Camera.SetupCurrent(zoomItemCam);
+    }
+
+    public void DeZoomItem()
+    {
+        inZoomItem = false;
+        Camera.SetupCurrent(lastCam);
+        zoomItemCam.gameObject.SetActive(false);
     }
 }
