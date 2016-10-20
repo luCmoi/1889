@@ -3,8 +3,9 @@ using System.Collections;
 
 public class ObjectBehavior : MonoBehaviour
 {
-    public Camera cam;
+    public Transform camPos;
     public float timerFirstMax;
+    public float speed;
 
     private bool firstClick = false;
     private bool active = false;
@@ -18,14 +19,13 @@ public class ObjectBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (active && !Controller1.Instance.inPuzzle)
+        if (active && !Controller1.Instance.inPuzzle && !Controller1.Instance.inZoomItem && !Controller1.Instance.block)
         {
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
             {
                 active = false;
                 GetComponent<BoxCollider>().enabled = true;
                 Controller1.Instance.DesactivateObject();
-                cam.gameObject.SetActive(false);
             }
         }
         if (firstClick)
@@ -51,9 +51,9 @@ public class ObjectBehavior : MonoBehaviour
             else
             {
                 active = true;
-                cam.gameObject.SetActive(true);
-                GetComponent<BoxCollider>().enabled = false;
                 Controller1.Instance.ActivateObject(this);
+                Controller1.Instance.mainCam.GetComponent<CameraBehavior1>().LaunchMovement(camPos, speed);
+                GetComponent<BoxCollider>().enabled = false;
             }
         }
     }

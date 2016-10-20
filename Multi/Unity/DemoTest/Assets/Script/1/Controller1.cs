@@ -1,19 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
+using System.Collections.Generic;
 
 public class Controller1 : MonoBehaviour {
 
     public static Controller1 Instance;
 
     public Camera mainCam;
+    public Transform FirstCamPos;
+    private Transform secondCamPos;
     public bool inObjet;
     public bool inPuzzle;
     public bool inZoomItem;
     public GameObject panelCommande;
     public Camera zoomItemCam;
+    public bool block;
 
-   
     private Camera lastCam;
     private Interact1 puzzle;
     private ObjectBehavior objet;
@@ -36,29 +38,29 @@ public class Controller1 : MonoBehaviour {
     public void ActivatePuzzle(Interact1 puzzle)
     {
         this.puzzle = puzzle;
-        Camera.SetupCurrent(puzzle.cam);
         inPuzzle = true;
     }
 
     public void DesactivatePuzzle()
     {
+        mainCam.GetComponent<CameraBehavior1>().LaunchMovement(secondCamPos, this.puzzle.movementSpeed);
         this.puzzle = null;
         inPuzzle = false;
-        Camera.SetupCurrent(objet.cam);
     }
 
     public void ActivateObject(ObjectBehavior objet)
     {
         this.objet = objet;
-        Camera.SetupCurrent(objet.cam);
         inObjet = true;
+        secondCamPos = objet.camPos;
     }
 
     public void DesactivateObject()
     {
+        mainCam.GetComponent<CameraBehavior1>().LaunchMovement(FirstCamPos, this.objet.speed);
+        secondCamPos = null;
         this.objet = null;
         inObjet = false;
-        Camera.SetupCurrent(mainCam);
     }
     void FixedUpdate()
     {

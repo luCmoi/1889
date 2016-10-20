@@ -3,9 +3,10 @@ using System.Collections;
 
 public class Interact1 : MonoBehaviour {
 
-    public Camera cam;
+    public Transform camPosition;
     public float timerFirstMax;
     public ExitAreaPuzzle[] exitArea;
+    public float movementSpeed;
 
     private bool firstClick = false;
     private bool active = false;
@@ -23,12 +24,11 @@ public class Interact1 : MonoBehaviour {
         {
             ex.gameObject.SetActive(false);
         }
-        cam.gameObject.SetActive(false);
     }
 	
 	// Update is called once per frame
 	void Update () {
-	    if (active)
+	    if (active && !Controller1.Instance.block && !Controller1.Instance.inZoomItem)
         {
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
             {
@@ -58,12 +58,12 @@ public class Interact1 : MonoBehaviour {
             else
             {
                 active = true;
-                cam.gameObject.SetActive(true);
+                Controller1.Instance.ActivatePuzzle(this);
+                Controller1.Instance.mainCam.GetComponent<CameraBehavior1>().LaunchMovement(camPosition,movementSpeed);
                 foreach (ExitAreaPuzzle ex in exitArea)
                 {
                     ex.gameObject.SetActive(true);
                 }
-                Controller1.Instance.ActivatePuzzle(this);
             }
         }
     }
