@@ -32,8 +32,22 @@ public class Controller1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            panelCommande.SetActive(!panelCommande.activeInHierarchy);
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            if (!inZoomItem)
+            {
+                ZoomItem();
+            }
+            else
+            {
+                DeZoomItem();
+            }
+        }
+    }
 
     public void ActivatePuzzle(Interact1 puzzle)
     {
@@ -64,20 +78,7 @@ public class Controller1 : MonoBehaviour {
     }
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            panelCommande.SetActive(!panelCommande.activeInHierarchy);
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            if (!inZoomItem)
-            {
-                ZoomItem();
-            }else
-            {
-                DeZoomItem();
-            }
-        }
+
     }
 
     public void ZoomItem()

@@ -85,13 +85,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Prefabs\Clock\Scripts\Clock.cs" />
-    <Compile Include="Assets\Script\1\CameraBehavior1.cs" />
-    <Compile Include="Assets\Script\1\Controller1.cs" />
-    <Compile Include="Assets\Script\1\Interact1.cs" />
-    <Compile Include="Assets\Script\ExitAreaPuzzle.cs" />
-    <Compile Include="Assets\Script\ItemZoomControle.cs" />
-    <Compile Include="Assets\Script\ObjectBehavior.cs" />
-    <Compile Include="Assets\Script\Utility.cs" />
+    <Compile Include="Assets\Script\Common\CameraBehavior1.cs" />
+    <Compile Include="Assets\Script\Common\Controller1.cs" />
+    <Compile Include="Assets\Script\Common\Utility.cs" />
+    <Compile Include="Assets\Script\Inventaire\ItemZoomControle.cs" />
+    <Compile Include="Assets\Script\Object\ObjectBehavior.cs" />
+    <Compile Include="Assets\Script\Object\Puzzle\ExitAreaPuzzle.cs" />
+    <Compile Include="Assets\Script\Object\Puzzle\Interact1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
