@@ -24,10 +24,11 @@ public class Interact1 : MonoBehaviour {
         {
             ex.gameObject.SetActive(false);
         }
+        GetComponent<BoxCollider>().enabled = true;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 	    if (active && !Controller1.Instance.block && !Controller1.Instance.inZoomItem)
         {
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
@@ -59,6 +60,7 @@ public class Interact1 : MonoBehaviour {
             {
                 active = true;
                 Controller1.Instance.ActivatePuzzle(this);
+                GetComponent<BoxCollider>().enabled = false;
                 Controller1.Instance.mainCam.GetComponent<CameraBehavior1>().LaunchMovement(camPosition,movementSpeed);
                 foreach (ExitAreaPuzzle ex in exitArea)
                 {
