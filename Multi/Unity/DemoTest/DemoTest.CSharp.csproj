@@ -93,6 +93,7 @@
     <Compile Include="Assets\Script\Object\Puzzle\ExitAreaPuzzle.cs" />
     <Compile Include="Assets\Script\Object\Puzzle\Interact1.cs" />
     <Compile Include="Assets\Script\Object\Puzzle\Lock\LockInteract.cs" />
+    <Compile Include="Assets\Script\Object\Puzzle\Lock\RoueLock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
