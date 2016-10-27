@@ -50,7 +50,12 @@ Temporary Items
 # =============== #
 Temp/
 Library/
-
+/Temp/
+/Library/
+Temp\
+Library\
+\Temp\
+\Library\
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
