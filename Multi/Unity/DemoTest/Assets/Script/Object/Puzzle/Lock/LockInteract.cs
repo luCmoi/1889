@@ -8,6 +8,7 @@ public class LockInteract : MonoBehaviour {
     public float speedMovement;
     public RoueLock[] roueLocks;
     public Vector3 origine;
+    private bool toDestroy;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,7 @@ public class LockInteract : MonoBehaviour {
     {
         if (active && Controller1.Instance.block && Controller1.Instance.inPuzzle)
             {
+
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
                 {
                 movement = true;
@@ -48,13 +50,28 @@ public class LockInteract : MonoBehaviour {
                     {
                         roue.Desactivate();
                         Controller1.Instance.block = false;
+                        Destroy(gameObject);
                     }
                 }
             }
         }
     }
-
-        void OnMouseDown()
+    void FixedUpdate()
+    {
+        if (active && Controller1.Instance.block && Controller1.Instance.inPuzzle)
+        {
+            foreach(RoueLock roue in roueLocks)
+            {
+                if (roue.actualPos != roue.objectif)
+                {
+                    return;
+                }
+            }
+            toDestroy = true;
+            movement = true;
+        }
+    }
+            void OnMouseDown()
         {
             if (Controller1.Instance.inPuzzle && !Controller1.Instance.block && !Controller1.Instance.inZoomItem)
             {

@@ -3,6 +3,9 @@ using System.Collections;
 
 public class RoueLock : MonoBehaviour {
     public float xSpeed;
+    public int objectif;
+    public int actualPos;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -26,8 +29,7 @@ public class RoueLock : MonoBehaviour {
     void OnMouseDrag()
     {
         float x = Input.GetAxis("Mouse X") * xSpeed;
-        //float y = Input.GetAxis("Mouse Y") * ySpeed;
         transform.RotateAround(GetComponent<MeshRenderer>().bounds.center, Vector3.down, x);
-        //transform.RotateAround(GetComponent<MeshRenderer>().bounds.center, Vector3.left, y);
+        actualPos = (int)transform.rotation.eulerAngles.y/36;
     }
 }
