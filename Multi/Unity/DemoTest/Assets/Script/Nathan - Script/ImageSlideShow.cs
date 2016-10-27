@@ -4,8 +4,8 @@ using System.Collections;
 
 public class ImageSlideShow : MonoBehaviour {
 
-	public Sprite[] slides;
-	public Sprite displayImage;
+	public Texture2D[] slides;
+	public GUITexture displayImage;
 	private float changeTime = 10.0f;
 	private int currentSlide = 0;
 	private float timeSinceLast = 1.0f;
