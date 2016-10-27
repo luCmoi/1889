@@ -94,6 +94,7 @@
     <Compile Include="Assets\Script\Object\Puzzle\Interact1.cs" />
     <Compile Include="Assets\Script\Object\Puzzle\Lock\LockInteract.cs" />
     <Compile Include="Assets\Script\Object\Puzzle\Lock\RoueLock.cs" />
+    <Compile Include="Assets\Script\UI\ImageSlideShow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

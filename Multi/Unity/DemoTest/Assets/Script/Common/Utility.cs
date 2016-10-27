@@ -5,7 +5,7 @@ public class Utility : MonoBehaviour {
     public static Utility Instance;
     public Texture2D cursorTexture;
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         if (Instance == null)
         {

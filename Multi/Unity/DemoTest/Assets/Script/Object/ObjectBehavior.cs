@@ -41,7 +41,7 @@ public class ObjectBehavior : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (!active && !Controller1.Instance.inPuzzle)
+        if (!active && !Controller1.Instance.inPuzzle && !Controller1.Instance.block)
         {
             if (!firstClick)
             {

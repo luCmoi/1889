@@ -20,7 +20,7 @@ public class Controller1 : MonoBehaviour {
     private Interact1 puzzle;
     private ObjectBehavior objet;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 	    if(Instance == null)
         {
             Instance = this;
@@ -36,7 +36,7 @@ public class Controller1 : MonoBehaviour {
         {
             panelCommande.SetActive(!panelCommande.activeInHierarchy);
         }
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G) && !block)
         {
             if (!inZoomItem)
             {
