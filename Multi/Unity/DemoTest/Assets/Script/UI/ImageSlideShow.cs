@@ -51,6 +51,7 @@ public class ImageSlideShow : MonoBehaviour {
             if (currentSlide == slides.Length)
             {
                 Controller1.Instance.block = false;
+                audioTypeSource.Stop();
                 Destroy(gameObject);
             }
         }
